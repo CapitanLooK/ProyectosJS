@@ -98,7 +98,7 @@ const lista = [
     },
 ];
 const sectionCenter = document.querySelector('.section-center');
-const filterBtns = document.querySelector('filter-btn');
+const filterBtns = document.querySelector('.filter-btn');
 
 
 
@@ -108,11 +108,10 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 //filtrado de items
-filterBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-        console.log(e.currentTarget.dataset)
+filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function(e){
+        console.log(e.currentTarget.dataset);
     })
-    
 });
 
 
