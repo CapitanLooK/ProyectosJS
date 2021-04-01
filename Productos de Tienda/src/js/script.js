@@ -3,7 +3,7 @@ const lista = [
     {
         id: 1,
         titulo: "pack 1",
-        categoria: "fotos",
+        categoria: "photos",
         precio: 15,
         img: "../backIndex.jpg",
         desc: "descripcion del pack",
@@ -11,7 +11,7 @@ const lista = [
     {
         id: 2,
         titulo: "pack 2",
-        categoria: "fotos",
+        categoria: "photos",
         precio: 15,
         img: ".src/img/backIndex.jpg",
         desc: "descripcion del pack",
@@ -19,7 +19,7 @@ const lista = [
     {
         id: 3,
         titulo: "pack 3",
-        categoria: "fotos",
+        categoria: "photos",
         precio: 15,
         img: ".src/img/backIndex.jpg",
         desc: "descripcion del pack",
@@ -27,7 +27,7 @@ const lista = [
     {
         id: 4,
         titulo: "pack 4",
-        categoria: "fotos",
+        categoria: "photos",
         precio: 15,
         img: ".src/img/backIndex.jpg",
         desc: "descripcion del pack",
@@ -35,7 +35,7 @@ const lista = [
     {
         id: 5,
         titulo: "pack 5",
-        categoria: "fotos",
+        categoria: "photos",
         precio: 15,
         img: ".src/img/backIndex.jpg",
         desc: "descripcion del pack",
@@ -43,7 +43,7 @@ const lista = [
     {
         id: 6,
         titulo: "pack 6",
-        categoria: "fotos",
+        categoria: "photos",
         precio: 15,
         img: ".src/img/backIndex.jpg",
         desc: "descripcion del pack",
@@ -98,36 +98,29 @@ const lista = [
     },
 ];
 const sectionCenter = document.querySelector('.section-center');
-const filterBtns = document.querySelector('.filter-btn');
+const container = document.querySelector('.btn-container')
 
 
 
 //carga de items
 window.addEventListener('DOMContentLoaded', () => {
     mostrarListaPacks(lista);
+    mostrarListaBotones();
 });
-
-//filtrado de items
-filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function(e){
-        console.log(e.currentTarget.dataset);
-    })
-});
-
 
 
 function mostrarListaPacks(listaPacks){
-    let mostrarLista = listaPacks.map((item)=>{
+    let mostrarLista = listaPacks.map((pack)=>{
         
         return `<article class="menu-item">
-                <img src=${item.img} class="photo" alt="producto">
+                <img src=${pack.img} class="photo" alt="producto">
                 <div class="item-info">
                     <header>
-                        <h4>${item.titulo}</h4>
-                        <h4 class="price">$${item.precio}</h4>
+                        <h4>${pack.titulo}</h4>
+                        <h4 class="price">$${pack.precio}</h4>
                     </header>
                     <p>
-                        ${item.desc}
+                        ${pack.desc}
                     </p>
                 </div>
                 </article>`;
@@ -136,3 +129,41 @@ function mostrarListaPacks(listaPacks){
     mostrarLista = mostrarLista.join("");
     sectionCenter.innerHTML = mostrarLista;
 }
+
+function mostrarListaBotones(){
+    const categorias = lista.reduce( (valores, lista) => {
+        if(!valores.includes(lista.categoria)){
+            valores.push(lista.categoria);
+        }
+        return valores;  
+    },
+    ['all']
+    );
+    const categoriaBtns = categorias.map((categoria) => {
+        return `
+        <button class="filter-btn" type="button" data-id=${categoria}>${categoria}</button>
+        `
+    })
+    .join("");
+    container.innerHTML = categoriaBtns;
+    const filterBtns = container.querySelectorAll('.filter-btn');
+    //filtrado de items
+    filterBtns.forEach( (btn) => {
+        btn.addEventListener("click", (e) => {
+           const categoria = e.currentTarget.dataset.id;
+           const listaCategoria = lista.filter((listaPack) => {
+           
+            if(listaPack.categoria === categoria){
+                return listaPack;
+            }
+            });
+           
+           if(categoria === "all"){
+               mostrarListaPacks(lista);
+           } else {
+               mostrarListaPacks(listaCategoria);
+           }
+    
+        });
+    });
+};
