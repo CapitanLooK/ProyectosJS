@@ -15,9 +15,9 @@ html{
 body{
     font-family: 'Kiwi Maru', serif;
     background: #DFDFDF;
-    color: grey;
+    color: #000000;
     line-height: 1.5;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 ul{
@@ -37,10 +37,10 @@ img{
 }
 
 h1, h2, h3, h4{
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     text-transform: capitalize;
-    line-height: 1.25;
-    margin-bottom: 0.75rem;
+    line-height: 1rem;
+    margin-bottom: 2rem;
     font-family: 'Kiwi Maru', serif;
 }
 
@@ -57,12 +57,12 @@ h3 {
 }
 
 h4 {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 p {
-  margin-bottom: 1.25rem;
-  color: grey;
+  margin-bottom: 2rem;
+  color: #000000;
 }
 
 @media screen and (min-width: 800px) {
@@ -76,13 +76,13 @@ p {
     font-size: 1.75rem;
   }
   h4 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   body {
-    font-size: 1rem;
+    font-size: 2rem;
   }
   h1, h2, h3, h4 {
-    line-height: 1;
+    line-height: 1.25;
   }
 }
 
@@ -91,13 +91,13 @@ p {
 .btn{
     text-transform: uppercase;
     background: transparent;
-    color: black;
+    color: #000000;
     padding: 0.4rem 0.75rem;
     letter-spacing: 0.25rem;
     display: inline-block;
     transition: all 0.3s linear;
-    font-size: 0.875rem;
-    border: 2px solid black;
+    font-size: 1rem;
+    border: 2px solid #000000;
     cursor: pointer;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 0.5rem;
@@ -105,12 +105,12 @@ p {
 
 .btn:hover {
   color: #f1f1f1;
-  background: black;
+  background: #000000;
 }
 
 /*seccion*/
 .section {
-  padding: 5rem 0;
+  padding: 5rem 1rem;
 }
 
 main {
@@ -121,93 +121,93 @@ main {
 
 /*menu*/
 
-.menu {
-  padding: 5rem 0;
+.lista {
+  padding: 3rem 0;
 }
 .title {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 }
 .underline {
-  width: 5rem;
-  height: 0.25rem;
-  background: #BFAB0D;
+  width: 3rem;
+  height: 0.1rem;
+  background: #000000;
   margin-left: auto;
   margin-right: auto;
 }
 .btn-container {
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
   display: flex;
   justify-content: center;
 }
 .filter-btn {
   background: transparent;
-  border-color: #BFAB0D;
-  font-size: 1rem;
+  border-color: #8B0690;
+  font-size: 1.5rem;
   text-transform: capitalize;
   margin: 0 0.5rem;
   letter-spacing: 1px;
   border-radius: 0.5rem;
-  padding: 0.4rem 0.75rem;
-  color: #BFAB0D;
+  padding: 1rem 0.75rem;
+  color: #8B0690;
   cursor: pointer;
   transition: all 0.3s linear;
 }
 .filter-btn:hover {
-  background: #BFAB0D;
+  background: #8B0690;
   color: #f1f1f1;
 }
 .section-center {
-  width: 90vw;
+  width: 100vw;
   margin: 0 auto;
   max-width: 1170px;
   display: grid;
   gap: 3rem 2rem;
   justify-items: center;
 }
-.menu-item {
+.lista-pack {
   display: grid;
-  gap: 1rem 2rem;
-  max-width: 25rem;
+  gap: 2rem 3rem;
+  max-width: 30rem;
 }
 .photo {
   object-fit: cover;
-  height: 200px;
-  border: 0.25rem solid #BFAB0D;
+  height: 30rem;
+  border: 0.25rem solid #8B0690;
   border-radius: 0.5rem;
 }
-.item-info header {
+.pack-info header {
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px dotted grey;
 }
-.item-info h4 {
+.pack-info h4 {
   margin-bottom: 0.5rem;
 }
-.price {
-  color: #BFAB0D;
+.precio {
+  color: #8B0690;
 }
-.item-text {
-  margin-bottom: 0;
-  padding-top: 1rem;
+.pack-text {
+  margin-bottom: 1rem;
+  padding-top: 3rem;
 }
 
 @media screen and (min-width: 768px) {
-  .menu-item {
-    grid-template-columns: 225px 1fr;
+  .lista-pack {
+    grid-template-columns: 300px 1fr;
     gap: 0 1.25rem;
     max-width: 40rem;
   }
   .photo {
-    height: 175px;
+    height: 250px;
   }
 }
 @media screen and (min-width: 1200px) {
   .section-center {
-    width: 95vw;
+    width: 100vw;
     grid-template-columns: 1fr 1fr;
   }
   .photo {
-    height: 150px;
+    height: 250px;
   }
 }
